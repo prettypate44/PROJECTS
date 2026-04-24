@@ -1,4 +1,4 @@
-// middleware/authmiddleware.js
+// middleware/authentication.js
 const jwt = require("jsonwebtoken");
 
 exports.verifyToken = (req, res, next) => {

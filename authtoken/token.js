@@ -1,3 +1,4 @@
+//login userand return token
 const jwt = require("jsonwebtoken");
 
 exports.login = async (req, res) => {
