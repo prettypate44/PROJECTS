@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="container">
+
         <h1>📝 Task Manager</h1>
 
-        <!-- Form -->
-        <form class="task-form" id="taskForm">
-            <input type="text" id="title" placeholder="Task Title" required>
-            <input type="text" id="description" placeholder="Description" required>
-            <button type="submit">Add Task</button>
+        <!-- FORM -->
+        <form id="taskForm">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Enter task">
+             
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Delete task">
+            
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="Edit task">
+
+
+            <button type="submit">
+                Add Task
+            </button>
+
         </form>
 
-        <!-- Task List -->
-        <div class="task-list">
-            <div class="task">
-                <div>
-                    <h3>Study Node.js</h3>
-                    <p>Read Express documentation</p>
-                </div>
-                <div class="actions">
-                    <button class="complete">✔</button>
-                    <button class="delete">✖</button>
-                </div>
-            </div>
+        <!-- TASK LIST -->
+        <ul id="taskList"></ul>
 
-            <div class="task completed">
-                <div>
-                    <h3>Workout</h3>
-                    <p>30 mins cardio</p>
-                </div>
-                <div class="actions">
-                    <button class="complete">✔</button>
-                    <button class="delete">✖</button>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <script src="front.js"></script>
+
 </body>
+
 </html>
