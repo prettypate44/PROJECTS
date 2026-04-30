@@ -34,7 +34,7 @@ let tasks = [
 ];
 
 // HOME ROUTE
-app.get("/", (req, res) => {
+app.get("/api/tasks", (req, res) => {
   res.send("Task Manager API Running...");
 });
 
@@ -55,7 +55,7 @@ app.get("/api/tasks/:id", (req, res) => {
     return res.status(404).json({
       message: "Task not found",
     });
-  }
+  };
 
   res.status(200).json(task);
 });
@@ -63,9 +63,19 @@ app.get("/api/tasks/:id", (req, res) => {
 
 // CREATE TASK
 app.post("/api/tasks", (req, res) => {
+  const { title } = req.body || {};
+
+  if (!title) {
+    return res.status(400).json({
+      message: "Title is required",
+    });
+  };
+
   const newTask = {
-    id: tasks.length + 1,
-    title: req.body.title,
+    id: tasks.length > 0
+      ? Math.max(...tasks.map(t => t.id)) + 1
+      : 1,
+    title,
     completed: false,
   };
 
@@ -78,7 +88,7 @@ app.post("/api/tasks", (req, res) => {
 });
 
 
-// UPDATE TASK
+// UPDATE TASK 
 app.put("/api/tasks/:id", (req, res) => {
   const id = Number(req.params.id);
 
@@ -88,13 +98,13 @@ app.put("/api/tasks/:id", (req, res) => {
     return res.status(404).json({
       message: "Task not found",
     });
-  }
+  };
 
   task.title = req.body.title || task.title;
 
   if (req.body.completed !== undefined) {
     task.completed = req.body.completed;
-  }
+  };
 
   res.status(200).json({
     message: "Task updated",
@@ -113,7 +123,7 @@ app.delete("/api/tasks/:id", (req, res) => {
     return res.status(404).json({
       message: "Task not found",
     });
-  }
+  };
 
   tasks = tasks.filter((task) => task.id !== id);
 

@@ -7,7 +7,7 @@ router.get("/tasks/:id", verifyToken, getTaskById);
 router.put("/tasks/:id", verifyToken, updateTask);
 router.delete("/tasks/:id", verifyToken, deleteTask);
 
-module.exports = router;//validation route 
+module.exports = router;//validation router
 
 const { validateTask } = require("../middleware/validation");
 
