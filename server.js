@@ -19,6 +19,18 @@ let tasks = [
     title: "Build API",
     completed: true,
   },
+
+  {
+    id: 3,
+    title: "Test API",
+    completed: true,
+  },
+
+  {
+    id: 4,
+    title: "Google slides",
+    completed: true,
+  },
 ];
 
 // HOME ROUTE
