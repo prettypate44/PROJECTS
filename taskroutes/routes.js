@@ -1,5 +1,5 @@
 //authroutes/ protcts
- const { verifyToken } = require("./middleware/routes.js");
+ const {verifyToken} = require("../middleware/taskroutes");
 
 router.post("/tasks", verifyToken, createTask);
 router.get("/tasks", verifyToken, getAllTasks)
@@ -9,6 +9,6 @@ router.delete("/tasks/:id", verifyToken, deleteTask);
 
 module.exports = router;//validation router
 
-const { validateTask } = require("../middleware/validation");
+const { validateTask } = require("../middleware/authMiddleware");
 
 router.post("/tasks", validateTask, createTask);

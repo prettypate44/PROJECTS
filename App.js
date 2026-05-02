@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api/tasks', taskRoutes);
 
 //server
-const PORT = 3000;
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 }); 
