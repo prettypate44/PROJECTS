@@ -34,13 +34,13 @@ let tasks = [
 ];
 
 // HOME ROUTE
-app.get("/api/tasks", (req, res) => {
+app.get("/api/tasks/:id", (req, res) => {
   res.send("Task Manager API Running...");
 });
 
 
 // GET ALL TASKS
-app.get("/api/tasks", (req, res) => {
+app.get("/api/tasks/:id", (req, res) => {
   res.status(200).json(tasks);
 });
 
@@ -89,7 +89,7 @@ app.post("/api/tasks", (req, res) => {
 
 
 // UPDATE TASK 
-app.put("/api/tasks/:id", (req, res) => {
+app.put("/api/tasks/", (req, res) => {
   const id = Number(req.params.id);
 
   const task = tasks.find((task) => task.id === id);
